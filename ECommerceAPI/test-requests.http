@@ -1,0 +1,223 @@
+### Variables
+@baseUrl = http://localhost:5000
+@adminEmail = admin@ecommerce.com
+@adminPassword = Admin@123
+@customerEmail = customer@example.com
+@customerPassword = Customer@123
+
+###############################################################################
+# 1. AUTHENTICATION
+###############################################################################
+
+### 1.1 Login as Admin
+# @name adminLogin
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "{{adminEmail}}",
+  "password": "{{adminPassword}}"
+}
+
+### Store Admin Token
+@adminToken = {{adminLogin.response.body.data.accessToken}}
+
+### 1.2 Login as Customer
+# @name customerLogin
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "{{customerEmail}}",
+  "password": "{{customerPassword}}"
+}
+
+### Store Customer Token
+@customerToken = {{customerLogin.response.body.data.accessToken}}
+
+### 1.3 Register a New Customer
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "newuser@example.com",
+  "password": "Password@123",
+  "firstName": "Alex",
+  "lastName": "Nguyen",
+  "phoneNumber": "+84912345678",
+  "address": "123 Nguyen Hue, Ben Nghe, District 1, HCMC"
+}
+
+### 1.4 Get Current User Profile (Admin)
+GET {{baseUrl}}/api/auth/me
+Authorization: Bearer {{adminToken}}
+
+### 1.5 Get Current User Profile (Customer)
+GET {{baseUrl}}/api/auth/me
+Authorization: Bearer {{customerToken}}
+
+
+###############################################################################
+# 2. CATEGORIES (Public Reads, Admin Writes)
+###############################################################################
+
+### 2.1 Get All Categories
+# @name getCategories
+GET {{baseUrl}}/api/categories
+
+### Extract first category ID
+@categoryId = {{getCategories.response.body.data[0].id}}
+
+### 2.2 Get Category by ID
+GET {{baseUrl}}/api/categories/{{categoryId}}
+
+### 2.3 Create Category (Admin Only)
+# @name createCategory
+POST {{baseUrl}}/api/categories
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "name": "Gaming Gear",
+  "description": "Keyboards, mice, and gaming accessories",
+  "imageUrl": "https://picsum.photos/seed/gaming/400/300"
+}
+
+### Store New Category ID
+@newCategoryId = {{createCategory.response.body.data.id}}
+
+### 2.4 Update Category (Admin Only)
+PUT {{baseUrl}}/api/categories/{{newCategoryId}}
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "name": "Pro Gaming Gear",
+  "description": "High-end gaming peripherals and accessories",
+  "imageUrl": "https://picsum.photos/seed/gaming/400/300"
+}
+
+### 2.5 Delete Category (Admin Only)
+DELETE {{baseUrl}}/api/categories/{{newCategoryId}}
+Authorization: Bearer {{adminToken}}
+
+
+###############################################################################
+# 3. PRODUCTS (Pagination, Filter, Sort)
+###############################################################################
+
+### 3.1 Get Products with Pagination (Page 1, Size 5)
+# @name getProducts
+GET {{baseUrl}}/api/products?page=1&pageSize=5
+
+### Extract first product ID
+@productId = {{getProducts.response.body.data.items[0].id}}
+
+### 3.2 Search Products by Keyword
+GET {{baseUrl}}/api/products?keyword=iPhone
+
+### 3.3 Filter Products by Price Range & Sort Descending
+GET {{baseUrl}}/api/products?minPrice=100&maxPrice=1000&sortBy=price&sortDesc=true
+
+### 3.4 Filter Products by Category & Pagination
+GET {{baseUrl}}/api/products?categoryId={{categoryId}}&page=1&pageSize=10
+
+### 3.5 Get Product Details by ID
+GET {{baseUrl}}/api/products/{{productId}}
+
+### 3.6 Create Product (Admin Only)
+# @name createProduct
+POST {{baseUrl}}/api/products
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "name": "Sony PlayStation 5 Slim",
+  "description": "Next-gen gaming console with 1TB SSD",
+  "price": 499.99,
+  "stockQuantity": 25,
+  "sku": "SONY-PS5-SLIM",
+  "imageUrl": "https://picsum.photos/seed/ps5/400/300",
+  "categoryId": "{{categoryId}}"
+}
+
+### Store New Product ID
+@newProductId = {{createProduct.response.body.data.id}}
+
+### 3.7 Update Product (Admin Only)
+PUT {{baseUrl}}/api/products/{{newProductId}}
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "name": "Sony PlayStation 5 Slim (Special Edition)",
+  "description": "Next-gen gaming console with 1TB SSD and extra controller",
+  "price": 549.99,
+  "stockQuantity": 20,
+  "imageUrl": "https://picsum.photos/seed/ps5/400/300",
+  "status": "Active",
+  "categoryId": "{{categoryId}}"
+}
+
+### 3.8 Delete Product (Soft Delete - Admin Only)
+DELETE {{baseUrl}}/api/products/{{newProductId}}
+Authorization: Bearer {{adminToken}}
+
+
+###############################################################################
+# 4. ORDERS (Business Workflow: Stock Check, Order Placement, Status Lifecycle)
+###############################################################################
+
+### 4.1 Create Order (Customer)
+# @name createOrder
+POST {{baseUrl}}/api/orders
+Authorization: Bearer {{customerToken}}
+Content-Type: application/json
+
+{
+  "shippingAddress": "123 Tran Hung Dao, District 5, Ho Chi Minh City",
+  "notes": "Please call before delivery",
+  "items": [
+    {
+      "productId": "{{productId}}",
+      "quantity": 1
+    }
+  ]
+}
+
+### Store New Order ID
+@orderId = {{createOrder.response.body.data.id}}
+
+### 4.2 Get Customer's Own Orders
+GET {{baseUrl}}/api/orders/my-orders
+Authorization: Bearer {{customerToken}}
+
+### 4.3 Get Order by ID (Authorized Customer or Admin)
+GET {{baseUrl}}/api/orders/{{orderId}}
+Authorization: Bearer {{customerToken}}
+
+### 4.4 Get All Orders with Pagination & Filter (Admin Only)
+GET {{baseUrl}}/api/orders?page=1&pageSize=10&status=Pending
+Authorization: Bearer {{adminToken}}
+
+### 4.5 Update Order Status: Pending -> Confirmed (Admin Only)
+PATCH {{baseUrl}}/api/orders/{{orderId}}/status
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "status": "Confirmed"
+}
+
+### 4.6 Update Order Status: Confirmed -> Processing (Admin Only)
+PATCH {{baseUrl}}/api/orders/{{orderId}}/status
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "status": "Processing"
+}
+
+### 4.7 Cancel Order (Restores Stock Quantity)
+POST {{baseUrl}}/api/orders/{{orderId}}/cancel
+Authorization: Bearer {{adminToken}}

@@ -1,0 +1,16 @@
+D:\.net\.net\ECommerceAPI\ECommerceAPI.Application\bin\Debug\net8.0\ECommerceAPI.Application.deps.json
+D:\.net\.net\ECommerceAPI\ECommerceAPI.Application\bin\Debug\net8.0\ECommerceAPI.Application.dll
+D:\.net\.net\ECommerceAPI\ECommerceAPI.Application\bin\Debug\net8.0\ECommerceAPI.Application.pdb
+D:\.net\.net\ECommerceAPI\ECommerceAPI.Application\bin\Debug\net8.0\ECommerceAPI.Domain.dll
+D:\.net\.net\ECommerceAPI\ECommerceAPI.Application\bin\Debug\net8.0\ECommerceAPI.Domain.pdb
+D:\.net\.net\ECommerceAPI\ECommerceAPI.Application\obj\Debug\net8.0\ECommerceAPI.Application.csproj.AssemblyReference.cache
+D:\.net\.net\ECommerceAPI\ECommerceAPI.Application\obj\Debug\net8.0\ECommerceAPI.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\.net\.net\ECommerceAPI\ECommerceAPI.Application\obj\Debug\net8.0\ECommerceAPI.Application.AssemblyInfoInputs.cache
+D:\.net\.net\ECommerceAPI\ECommerceAPI.Application\obj\Debug\net8.0\ECommerceAPI.Application.AssemblyInfo.cs
+D:\.net\.net\ECommerceAPI\ECommerceAPI.Application\obj\Debug\net8.0\ECommerceAPI.Application.csproj.CoreCompileInputs.cache
+D:\.net\.net\ECommerceAPI\ECommerceAPI.Application\obj\Debug\net8.0\ECommerceAPI.Application.sourcelink.json
+D:\.net\.net\ECommerceAPI\ECommerceAPI.Application\obj\Debug\net8.0\ECommerc.F181CD37.Up2Date
+D:\.net\.net\ECommerceAPI\ECommerceAPI.Application\obj\Debug\net8.0\ECommerceAPI.Application.dll
+D:\.net\.net\ECommerceAPI\ECommerceAPI.Application\obj\Debug\net8.0\refint\ECommerceAPI.Application.dll
+D:\.net\.net\ECommerceAPI\ECommerceAPI.Application\obj\Debug\net8.0\ECommerceAPI.Application.pdb
+D:\.net\.net\ECommerceAPI\ECommerceAPI.Application\obj\Debug\net8.0\ref\ECommerceAPI.Application.dll

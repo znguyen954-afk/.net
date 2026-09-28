@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ECommerceAPI.API</name>
+    </assembly>
+    <members>
+        <member name="T:ECommerceAPI.API.Controllers.AuthController">
+            <summary>
+            Authentication endpoints - Login and Register
+            </summary>
+        </member>
+        <member name="M:ECommerceAPI.API.Controllers.AuthController.Login(ECommerceAPI.Application.DTOs.LoginRequest)">
+            <summary>
+            Login with email and password to get a JWT token
+            </summary>
+        </member>
+        <member name="M:ECommerceAPI.API.Controllers.AuthController.Register(ECommerceAPI.Application.DTOs.RegisterRequest)">
+            <summary>
+            Register a new customer account
+            </summary>
+        </member>
+        <member name="M:ECommerceAPI.API.Controllers.AuthController.Me">
+            <summary>
+            Get the currently authenticated user's profile
+            </summary>
+        </member>
+        <member name="T:ECommerceAPI.API.Controllers.CategoriesController">
+            <summary>
+            Category management endpoints
+            </summary>
+        </member>
+        <member name="M:ECommerceAPI.API.Controllers.CategoriesController.GetAll">
+            <summary>
+            Get all categories with product count
+            </summary>
+        </member>
+        <member name="M:ECommerceAPI.API.Controllers.CategoriesController.GetById(System.Guid)">
+            <summary>
+            Get a category by ID
+            </summary>
+            <param name="id">Category GUID</param>
+        </member>
+        <member name="M:ECommerceAPI.API.Controllers.CategoriesController.Create(ECommerceAPI.Application.DTOs.CreateCategoryRequest)">
+            <summary>
+            Create a new category (Admin only)
+            </summary>
+        </member>
+        <member name="M:ECommerceAPI.API.Controllers.CategoriesController.Update(System.Guid,ECommerceAPI.Application.DTOs.UpdateCategoryRequest)">
+            <summary>
+            Update a category (Admin only)
+            </summary>
+            <param name="id">Category GUID</param>
+        </member>
+        <member name="M:ECommerceAPI.API.Controllers.CategoriesController.Delete(System.Guid)">
+            <summary>
+            Delete a category (Admin only)
+            </summary>
+            <param name="id">Category GUID</param>
+        </member>
+        <member name="T:ECommerceAPI.API.Controllers.OrdersController">
+            <summary>
+            Order management endpoints
+            </summary>
+        </member>
+        <member name="M:ECommerceAPI.API.Controllers.OrdersController.GetAll(ECommerceAPI.Application.DTOs.OrderQueryParams)">
+            <summary>
+            Get all orders with pagination and filtering (Admin only)
+            </summary>
+        </member>
+        <member name="M:ECommerceAPI.API.Controllers.OrdersController.GetMyOrders">
+            <summary>
+            Get current user's orders
+            </summary>
+        </member>
+        <member name="M:ECommerceAPI.API.Controllers.OrdersController.GetById(System.Guid)">
+            <summary>
+            Get an order by ID
+            </summary>
+            <param name="id">Order GUID</param>
+        </member>
+        <member name="M:ECommerceAPI.API.Controllers.OrdersController.Create(ECommerceAPI.Application.DTOs.CreateOrderRequest)">
+            <summary>
+            Create a new order for the current user
+            </summary>
+        </member>
+        <member name="M:ECommerceAPI.API.Controllers.OrdersController.UpdateStatus(System.Guid,ECommerceAPI.Application.DTOs.UpdateOrderStatusRequest)">
+            <summary>
+            Update order status (Admin/Manager only) - follows state machine
+            </summary>
+            <param name="id">Order GUID</param>
+        </member>
+        <member name="M:ECommerceAPI.API.Controllers.OrdersController.Cancel(System.Guid)">
+            <summary>
+            Cancel an order (Customer can cancel their own, Admin can cancel any)
+            </summary>
+            <param name="id">Order GUID</param>
+        </member>
+        <member name="T:ECommerceAPI.API.Controllers.ProductsController">
+            <summary>
+            Product management endpoints
+            </summary>
+        </member>
+        <member name="M:ECommerceAPI.API.Controllers.ProductsController.GetAll(ECommerceAPI.Application.DTOs.ProductQueryParams)">
+            <summary>
+            Get all products with pagination, filtering, and sorting
+            </summary>
+            <param name="query">Filter and pagination parameters</param>
+        </member>
+        <member name="M:ECommerceAPI.API.Controllers.ProductsController.GetById(System.Guid)">
+            <summary>
+            Get a product by its ID
+            </summary>
+            <param name="id">Product GUID</param>
+        </member>
+        <member name="M:ECommerceAPI.API.Controllers.ProductsController.Create(ECommerceAPI.Application.DTOs.CreateProductRequest)">
+            <summary>
+            Create a new product (Admin only)
+            </summary>
+        </member>
+        <member name="M:ECommerceAPI.API.Controllers.ProductsController.Update(System.Guid,ECommerceAPI.Application.DTOs.UpdateProductRequest)">
+            <summary>
+            Update an existing product (Admin only)
+            </summary>
+            <param name="id">Product GUID</param>
+        </member>
+        <member name="M:ECommerceAPI.API.Controllers.ProductsController.Delete(System.Guid)">
+            <summary>
+            Delete a product by ID (Admin only, soft delete)
+            </summary>
+            <param name="id">Product GUID</param>
+        </member>
+        <member name="T:ECommerceAPI.API.Middleware.GlobalExceptionMiddleware">
+            <summary>
+            Global exception handling middleware - catches unhandled exceptions and returns consistent error responses
+            </summary>
+        </member>
+    </members>
+</doc>

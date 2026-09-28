@@ -1,0 +1,225 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj": {}
+  },
+  "projects": {
+    "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj",
+        "projectName": "ECommerceAPI.Application",
+        "projectPath": "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj",
+        "packagesPath": "C:\\Users\\hakha\\.nuget\\packages\\",
+        "outputPath": "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\hakha\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj": {
+                "projectPath": "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.425/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj",
+        "projectName": "ECommerceAPI.Domain",
+        "projectPath": "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj",
+        "packagesPath": "C:\\Users\\hakha\\.nuget\\packages\\",
+        "outputPath": "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\hakha\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.425/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj",
+        "projectName": "ECommerceAPI.Infrastructure",
+        "projectPath": "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\hakha\\.nuget\\packages\\",
+        "outputPath": "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\hakha\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj": {
+                "projectPath": "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj"
+              },
+              "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj": {
+                "projectPath": "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.425/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

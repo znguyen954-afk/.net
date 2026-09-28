@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ou1rMerpJ6c=",
+  "success": true,
+  "projectFilePath": "D:\\.net\\.net\\ECommerceAPI\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hakha\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
+    "C:\\Users\\hakha\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
